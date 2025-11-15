@@ -1,8 +1,8 @@
-import { colors } from './Colors';
-import { Produto } from './Produto';
+import { colors } from './src/util/Colors';
+import { Cardapio } from './src/model/Cardapio';
 import readlinesync = require("readline-sync");
 let opcao, preco, quant, cod: number
-let produto, bebida, lanche: string
+let lanche: string
 
 export function main() {
     console.log(colors.bg.black, colors.fg.yellow,
@@ -12,10 +12,10 @@ export function main() {
         console.log("                                                     ");
         console.log("*****************************************************");
         console.log("                                                     ");
-        console.log("            1 - Cadastrar lanche                     ");
-        console.log("            2 - Cadastrar bebida                     ");
-        console.log("            3 - Listar lanches                       ");
-        console.log("            4 - Listar bebidas                       ");
+        console.log("            1 - Cadastrar lanches                    ");
+        console.log("            2 - Listar lanches                       ");
+        console.log("            3 - Atualizar Itens                      ");
+        console.log("            4 - Pesquisar Itens                      ");
         console.log("            5 - Excluir produto                      ");
         console.log("            9 - Sair                                 ");
         console.log("                                                     ");
@@ -40,20 +40,40 @@ export function main() {
             preco = readlinesync.questionFloat("R$: ")
             console.log("Digite o código do produto: ");
             cod = readlinesync.questionInt()  
+            console.log("Digite a quantidade do produto: ");
+            quant = readlinesync.questionInt()  
 
             keyPress()
             break;   
 
             case 2:
-            console.log("Digite o Nome da bebiba: ");
-            bebida = readlinesync.question(" ");
-            console.log("Digite o preço do produto: ");
-            preco = readlinesync.questionFloat("R$: ")
-            console.log("Digite o código do produto: ");
-            cod = readlinesync.questionInt()           
+             console.log(colors.fg.whitestrong, "\n\nListar todos os Lanches\n\n", colors.reset);
+
             keyPress()
             break;   
+
+            case 3: 
+            console.log(colors.fg.whitestrong, "\n\nAtualizar produtos: ", colors.reset);
+
+            keyPress()
+            break;   
+            case 4: 
+            console.log(colors.fg.whitestrong, "\n\nPesquisar produtos: ", colors.reset);
+
+            keyPress()
+            case 5: 
+            console.log(colors.fg.whitestrong, "\n\nDeletar produtos: ", colors.reset);
+
+            keyPress()
+            break;     
             
+            default:
+                console.log(colors.fg.whitestrong, 
+                    "\nOpção Inválida!\n", colors.reset);
+
+                keyPress()
+                break;
+                
          }   
 
 function sobre(): void {
