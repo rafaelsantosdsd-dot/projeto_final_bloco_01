@@ -4,17 +4,17 @@ export class CardapioLanches extends Cardapio {
 
     private _lanches: string;
 
-    constructor(quant: number, preco: number, lanche: string, cod: number) {
+    constructor(quant: number, preco: number, lanches: string, cod: number) {
         super(quant, preco, cod);
-        this._lanches = lanche;
+        this._lanches = lanches;
     }
 
     public get lanche() {
         return this._lanches;
     }
 
-    public set lanche(lanche: string) {
-        this._lanches = lanche;
+    public set lanche(lanches: string) {
+        this._lanches = lanches;
     }
     public visualizar(): void {
     super.visualizar();
